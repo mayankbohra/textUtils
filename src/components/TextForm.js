@@ -2,11 +2,21 @@ import React, { useState } from 'react';
 
 const TextForm = (props) => {
     const handleUpClicked = () => {
-        setText(text.toUpperCase());
+        if(text.trim() === '') {
+            props.showAlert("Add Text!", "warning");
+        }
+        else{
+            setText(text.toUpperCase());
+        }
     }
 
     const handleLoClicked = () => {
-        setText(text.toLowerCase());
+        if(text.trim() === '') {
+            props.showAlert("Add Text!", "warning");
+        }
+        else{
+            setText(text.toLowerCase());
+        }
     }
     
     const handleCopy = () => {
