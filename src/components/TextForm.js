@@ -10,10 +10,15 @@ const TextForm = (props) => {
     }
     
     const handleCopy = () => {
-        props.showAlert("Text copied successfully", "success");
-        const text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
+        if(text.trim() === '') {
+            props.showAlert("Nothing to copy!", "warning");
+        }
+        else{
+            props.showAlert("Text copied successfully", "success");
+            const txt = document.getElementById("myBox");
+            txt.select();
+            navigator.clipboard.writeText(txt.value);
+        }
     }
     
     const handleOnChange = (event) => {
